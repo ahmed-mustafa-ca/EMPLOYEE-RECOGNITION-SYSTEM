@@ -1,0 +1,37 @@
+app:
+  name: "Multi-Face Employee Recognition System"
+  version: "1.0.0"
+  debug: false
+
+recognition:
+  model: "Facenet512"           # Options: VGG-Face, Facenet, Facenet512, OpenFace, DeepFace, ArcFace
+  detection_backend: "opencv"   # Options: opencv, ssd, dlib, mtcnn, retinaface, mediapipe
+  similarity_threshold: 0.60    # Cosine similarity — higher = stricter matching
+  distance_metric: "cosine"     # Options: cosine, euclidean, euclidean_l2
+  max_faces_per_frame: 10
+  min_face_size: 50             # Minimum face width/height in pixels
+  enforce_detection: false
+
+attendance:
+  cooldown_seconds: 60          # Prevent duplicate entries within this window
+  working_hours_start: "09:00"
+  working_hours_end: "18:00"
+  late_threshold_minutes: 15
+
+database:
+  path: "database/employee_recognition.db"
+  pool_size: 5
+  echo: false
+
+paths:
+  employee_images: "data/employee_images"
+  embeddings: "models/embeddings"
+  model_weights: "models/weights"
+  temp: "data/temp"
+  logs: "logs"
+
+webcam:
+  device_index: 0
+  frame_width: 1280
+  frame_height: 720
+  fps: 30
