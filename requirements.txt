@@ -1,0 +1,37 @@
+# =============================================================================
+# Multi-Face Employee Recognition System — Requirements
+# Python 3.10 / 3.11 recommended
+# sqlite3 is part of Python's standard library — no pip install needed
+# Install: pip install -r requirements.txt
+# =============================================================================
+
+# ── Image Processing ──────────────────────────────────────────────────────────
+opencv-python==4.9.0.80        # Face detection (DNN + Haar cascade)
+numpy==1.26.4                  # Array ops; pinned <2.0 for TF 2.x compatibility
+Pillow==10.3.0                 # Image I/O and format conversion
+
+# ── Face Recognition ──────────────────────────────────────────────────────────
+deepface==0.0.93               # Unified API: Facenet512, ArcFace, VGG-Face, etc.
+tensorflow==2.15.1             # DeepFace default backend (stable with numpy 1.x)
+tf-keras==2.15.1               # Required by DeepFace when Keras 3 is installed
+
+# ── Frontend ──────────────────────────────────────────────────────────────────
+streamlit==1.35.0              # Web UI framework
+streamlit-webrtc==0.47.6       # Real-time webcam streaming in Streamlit
+av==12.3.0                     # Video frame I/O for streamlit-webrtc (pre-built wheel for Python 3.10)
+
+# ── Database ORM ──────────────────────────────────────────────────────────────
+# sqlite3 — built into Python, no package needed
+SQLAlchemy==2.0.30             # ORM layer over SQLite
+
+# ── Data & Utilities ──────────────────────────────────────────────────────────
+pandas==2.2.2                  # Attendance DataFrames and CSV export
+python-dotenv==1.0.1           # Load .env into os.environ
+PyYAML==6.0.1                  # Parse config/settings.yaml
+pydantic==2.7.1                # Input validation (compatible with Streamlit 1.35)
+scikit-learn==1.5.0            # Cosine similarity, clustering utilities
+loguru==0.7.2                  # Structured logging with rotation
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest==8.2.1
+pytest-cov==5.0.0
